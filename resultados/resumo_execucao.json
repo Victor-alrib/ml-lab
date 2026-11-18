@@ -1,0 +1,239 @@
+{
+  "dataset": "motor_industrial_sintetico (6000 linhas, gerado com seed=7)",
+  "classificacao": {
+    "config_preprocessamento": {
+      "target": "falha_24h",
+      "time_column": "timestamp",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao",
+        "temperatura_rolamento_c"
+      ]
+    },
+    "vazamento_detectado_e_removido": [
+      {
+        "feature": "modo_falha",
+        "score": 1.0,
+        "metric": "balanced accuracy"
+      }
+    ],
+    "avisos_preview": [
+      "Classes desbalanceadas: a menor classe representa 8.5% dos dados. Accuracy pode enganar — priorize Recall, F1 e balanced accuracy.",
+      "Possível vazamento: 'modo_falha' sozinha atinge balanced accuracy = 1.000 no treino. Verifique se ela é derivada do alvo ou registrada depois do evento que se quer prever; se for, remova-a dos atributos."
+    ],
+    "n_treino": 4800,
+    "n_teste": 1200,
+    "distribuicao_classes": {
+      "train": [
+        {
+          "label": "0",
+          "count": 4393,
+          "pct": 91.52083333333333
+        },
+        {
+          "label": "1",
+          "count": 407,
+          "pct": 8.479166666666666
+        }
+      ],
+      "test": [
+        {
+          "label": "0",
+          "count": 1098,
+          "pct": 91.5
+        },
+        {
+          "label": "1",
+          "count": 102,
+          "pct": 8.5
+        }
+      ]
+    },
+    "testes_pareados_f1": [
+      {
+        "a_name": "Regressão Logística · Motores industriais (sintético)",
+        "b_name": "Decision Tree · Motores industriais (sintético)",
+        "metric": "f1",
+        "k": 5,
+        "mean_diff": -0.039058434108104265,
+        "t_corrected": -1.8718191046009178,
+        "p_corrected": 0.13454772784489752,
+        "p_standard": 0.04842876662370776,
+        "significant_5pct": false,
+        "reason": null
+      },
+      {
+        "a_name": "Regressão Logística · Motores industriais (sintético)",
+        "b_name": "Random Forest · Motores industriais (sintético)",
+        "metric": "f1",
+        "k": 5,
+        "mean_diff": 0.008559457166641065,
+        "t_corrected": 0.2578190957695883,
+        "p_corrected": 0.809267493820194,
+        "p_standard": 0.71864969334713,
+        "significant_5pct": false,
+        "reason": null
+      },
+      {
+        "a_name": "Regressão Logística · Motores industriais (sintético)",
+        "b_name": "XGBoost · Motores industriais (sintético)",
+        "metric": "f1",
+        "k": 5,
+        "mean_diff": -0.023143374539610594,
+        "t_corrected": -0.5386574131137641,
+        "p_corrected": 0.618701780022547,
+        "p_standard": 0.46440849013594687,
+        "significant_5pct": false,
+        "reason": null
+      },
+      {
+        "a_name": "Decision Tree · Motores industriais (sintético)",
+        "b_name": "Random Forest · Motores industriais (sintético)",
+        "metric": "f1",
+        "k": 5,
+        "mean_diff": 0.047617891274745326,
+        "t_corrected": 2.003372367056117,
+        "p_corrected": 0.11567034766763677,
+        "p_standard": 0.03974330716851573,
+        "significant_5pct": false,
+        "reason": null
+      },
+      {
+        "a_name": "Decision Tree · Motores industriais (sintético)",
+        "b_name": "XGBoost · Motores industriais (sintético)",
+        "metric": "f1",
+        "k": 5,
+        "mean_diff": 0.015915059568493668,
+        "t_corrected": 0.5221787730279736,
+        "p_corrected": 0.6291292600006968,
+        "p_standard": 0.4772484100491669,
+        "significant_5pct": false,
+        "reason": null
+      },
+      {
+        "a_name": "Random Forest · Motores industriais (sintético)",
+        "b_name": "XGBoost · Motores industriais (sintético)",
+        "metric": "f1",
+        "k": 5,
+        "mean_diff": -0.03170283170625166,
+        "t_corrected": -0.7585300132405681,
+        "p_corrected": 0.49037138589694274,
+        "p_standard": 0.3187332296116212,
+        "significant_5pct": false,
+        "reason": null
+      }
+    ]
+  },
+  "regressao": {
+    "config_preprocessamento": {
+      "target": "temperatura_rolamento_c",
+      "split_strategy": "temporal",
+      "time_column": "timestamp",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao"
+      ]
+    },
+    "avisos_preview": [],
+    "vazamento_detectado": [],
+    "testes_pareados_rmse": [
+      {
+        "a_name": "Regressão Linear · Motores industriais (sintético)",
+        "b_name": "Decision Tree · Motores industriais (sintético)",
+        "metric": "rmse",
+        "k": 5,
+        "mean_diff": -1.308347610209689,
+        "t_corrected": -4.246769106061894,
+        "p_corrected": 0.013192040919535934,
+        "p_standard": 0.0031143632454949588,
+        "significant_5pct": true,
+        "reason": null
+      },
+      {
+        "a_name": "Regressão Linear · Motores industriais (sintético)",
+        "b_name": "Random Forest · Motores industriais (sintético)",
+        "metric": "rmse",
+        "k": 5,
+        "mean_diff": -0.20480962005113074,
+        "t_corrected": -0.6052827301345128,
+        "p_corrected": 0.5776528337879183,
+        "p_standard": 0.4152714160435327,
+        "significant_5pct": false,
+        "reason": null
+      },
+      {
+        "a_name": "Regressão Linear · Motores industriais (sintético)",
+        "b_name": "XGBoost · Motores industriais (sintético)",
+        "metric": "rmse",
+        "k": 5,
+        "mean_diff": 0.08187568262751217,
+        "t_corrected": 0.30559002855726575,
+        "p_corrected": 0.7751598407722827,
+        "p_standard": 0.6704745317758523,
+        "significant_5pct": false,
+        "reason": null
+      },
+      {
+        "a_name": "Decision Tree · Motores industriais (sintético)",
+        "b_name": "Random Forest · Motores industriais (sintético)",
+        "metric": "rmse",
+        "k": 5,
+        "mean_diff": 1.1035379901585582,
+        "t_corrected": 15.84301604379075,
+        "p_corrected": 9.275812991760736e-05,
+        "p_standard": 1.8591970492233037e-05,
+        "significant_5pct": true,
+        "reason": null
+      },
+      {
+        "a_name": "Decision Tree · Motores industriais (sintético)",
+        "b_name": "XGBoost · Motores industriais (sintético)",
+        "metric": "rmse",
+        "k": 5,
+        "mean_diff": 1.3902232928372011,
+        "t_corrected": 30.82891415723322,
+        "p_corrected": 6.595961856474817e-06,
+        "p_standard": 1.3079784508805485e-06,
+        "significant_5pct": true,
+        "reason": null
+      },
+      {
+        "a_name": "Random Forest · Motores industriais (sintético)",
+        "b_name": "XGBoost · Motores industriais (sintético)",
+        "metric": "rmse",
+        "k": 5,
+        "mean_diff": 0.2866853026786429,
+        "t_corrected": 3.326944070602869,
+        "p_corrected": 0.029188725002352336,
+        "p_standard": 0.007541432027053567,
+        "significant_5pct": true,
+        "reason": null
+      }
+    ]
+  },
+  "ambiente": {
+    "python": "3.13.17",
+    "sklearn": "1.9.1",
+    "xgboost": "3.4.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3"
+  }
+}

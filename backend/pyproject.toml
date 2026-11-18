@@ -1,0 +1,18 @@
+[project]
+name = "ml-lab-backend"
+version = "1.0.0"
+description = "API do ML Lab — laboratório interativo de Machine Learning aplicado à indústria"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["B008", "B905"]  # zip(strict=) é opcional aqui: os iteráveis têm o mesmo tamanho por construção

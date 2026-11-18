@@ -1,0 +1,2511 @@
+[
+  {
+    "name": "Regressão Logística · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "classification",
+    "model": "logistic_regression",
+    "model_name": "Regressão Logística",
+    "family": "Linear",
+    "params": {
+      "C": 1.0,
+      "penalty": "l2",
+      "max_iter": 1000,
+      "fit_intercept": true,
+      "class_weight": "none"
+    },
+    "preprocessing": {
+      "target": "falha_24h",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao",
+        "temperatura_rolamento_c"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "stratified",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": "binary",
+    "target": "falha_24h",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "temperatura_rolamento_c",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "num__temperatura_rolamento_c",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "stratified",
+    "metrics": {
+      "test": {
+        "accuracy": 0.9208333333333333,
+        "balanced_accuracy": 0.5565466623807993,
+        "precision": 0.7058823529411765,
+        "recall": 0.11764705882352941,
+        "f1": 0.20168067226890757,
+        "log_loss": 0.23429849154184001,
+        "roc_auc": 0.8018411371834708
+      },
+      "train": {
+        "accuracy": 0.9189583333333333,
+        "balanced_accuracy": 0.5466360655297601,
+        "precision": 0.6451612903225806,
+        "recall": 0.09828009828009827,
+        "f1": 0.17057569296375266,
+        "log_loss": 0.24145738034556133,
+        "roc_auc": 0.7868386773463031
+      },
+      "baseline": {
+        "accuracy": 0.915,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "primary_metric": "f1",
+    "cv": {
+      "splitter": "StratifiedKFold",
+      "folds": 5,
+      "metrics": {
+        "accuracy": {
+          "mean": 0.9179166666666667,
+          "std": 0.00567684441393282,
+          "folds": [
+            0.9229166666666667,
+            0.9197916666666667,
+            0.9229166666666667,
+            0.9135416666666667,
+            0.9104166666666667
+          ],
+          "train_mean": 0.9188541666666665,
+          "train_std": 0.0015027643798180472
+        },
+        "balanced_accuracy": {
+          "mean": 0.544976999651523,
+          "std": 0.009660519439641975,
+          "folds": [
+            0.5600219104200901,
+            0.5415033919015716,
+            0.5488138878355033,
+            0.5381271181732319,
+            0.5364186899272182
+          ],
+          "train_mean": 0.5463037439624447,
+          "train_std": 0.0037451609328624054
+        },
+        "precision": {
+          "mean": 0.6427350427350428,
+          "std": 0.2093502465979027,
+          "folds": [
+            0.7692307692307693,
+            0.7,
+            0.8888888888888888,
+            0.4666666666666667,
+            0.3888888888888889
+          ],
+          "train_mean": 0.6427634003956193,
+          "train_std": 0.058515002799375306
+        },
+        "recall": {
+          "mean": 0.09587473652514303,
+          "std": 0.016427079408968693,
+          "folds": [
+            0.12345679012345678,
+            0.08641975308641975,
+            0.09876543209876543,
+            0.08536585365853659,
+            0.08536585365853659
+          ],
+          "train_mean": 0.09767248702218027,
+          "train_std": 0.006775731757306829
+        },
+        "f1": {
+          "mean": 0.16574395719559132,
+          "std": 0.03007803343012222,
+          "folds": [
+            0.2127659574468085,
+            0.15384615384615385,
+            0.17777777777777778,
+            0.14432989690721648,
+            0.14
+          ],
+          "train_mean": 0.16953290290815426,
+          "train_std": 0.011904335769137046
+        },
+        "roc_auc": {
+          "mean": 0.7742963091498749,
+          "std": 0.023639423275728592,
+          "folds": [
+            0.7461621651989495,
+            0.7650388348150956,
+            0.8102360988216126,
+            0.7693066281460081,
+            0.7807378187677092
+          ],
+          "train_mean": 0.7883990070124011,
+          "train_std": 0.00659802810004397
+        }
+      },
+      "fit_time_mean": 0.06615376472473145
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "|Coeficiente| (atributos na escala transformada)",
+      "features": [
+        "num__temperatura_rolamento_c",
+        "cat__porte_grande",
+        "num__horas_desde_manutencao",
+        "cat__porte_pequeno",
+        "num__vibracao_rms_mm_s",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-06",
+        "num__carga_pct",
+        "num__temperatura_ambiente_c",
+        "num__fator_potencia",
+        "cat__motor_id_MTR-04",
+        "cat__motor_id_MTR-07",
+        "cat__porte_medio",
+        "cat__turno_A",
+        "num__rotacao_rpm",
+        "cat__motor_id_MTR-01",
+        "cat__turno_B",
+        "num__corrente_a",
+        "num__umidade_pct",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-10",
+        "cat__motor_id_MTR-03",
+        "cat__turno_C",
+        "cat__motor_id_MTR-05",
+        "cat__motor_id_MTR-08"
+      ],
+      "values": [
+        0.9290659266251209,
+        0.44918386643214214,
+        0.3888767657523107,
+        0.3298551930316256,
+        0.2655644494971819,
+        0.26264225744544567,
+        0.25828571968009817,
+        0.25392202513364076,
+        0.23803768778408224,
+        0.20728438447749023,
+        0.19459422400778725,
+        0.13526096902383883,
+        0.11783637998246194,
+        0.10330776294035779,
+        0.1025077380278666,
+        0.09541669239697938,
+        0.07658068476400894,
+        0.06648281567850728,
+        0.06496388742498613,
+        0.04259850528033493,
+        0.04121182111896267,
+        0.03506818128644276,
+        0.025234784758307423,
+        0.018792133533481786,
+        0.005922575873359141
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": {
+      "rows": [
+        {
+          "label": "coef",
+          "values": [
+            -0.23803768778408224,
+            -0.06496388742498613,
+            -0.25392202513364076,
+            -0.1025077380278666,
+            0.06648281567850728,
+            0.20728438447749023,
+            0.2655644494971819,
+            0.3888767657523107,
+            0.9290659266251209,
+            0.09541669239697938,
+            -0.26264225744544567,
+            0.03506818128644276,
+            0.19459422400778725,
+            -0.018792133533481786,
+            -0.25828571968009817,
+            0.13526096902383883,
+            -0.005922575873359141,
+            0.04259850528033493,
+            0.04121182111896267,
+            -0.44918386643214214,
+            0.11783637998246194,
+            0.3298551930316256,
+            -0.10330776294035779,
+            0.07658068476400894,
+            0.025234784758307423
+          ]
+        }
+      ],
+      "features": [
+        "num__temperatura_ambiente_c",
+        "num__umidade_pct",
+        "num__carga_pct",
+        "num__rotacao_rpm",
+        "num__corrente_a",
+        "num__fator_potencia",
+        "num__vibracao_rms_mm_s",
+        "num__horas_desde_manutencao",
+        "num__temperatura_rolamento_c",
+        "cat__motor_id_MTR-01",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-03",
+        "cat__motor_id_MTR-04",
+        "cat__motor_id_MTR-05",
+        "cat__motor_id_MTR-06",
+        "cat__motor_id_MTR-07",
+        "cat__motor_id_MTR-08",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-10",
+        "cat__porte_grande",
+        "cat__porte_medio",
+        "cat__porte_pequeno",
+        "cat__turno_A",
+        "cat__turno_B",
+        "cat__turno_C"
+      ],
+      "intercept": [
+        -2.7335482460515728
+      ]
+    },
+    "timing": {
+      "fit_s": 0.05202187700000138,
+      "predict_s": 0.011220794999999839,
+      "cv_s": 0.7351557490000005,
+      "total_s": 1.2373064499999913
+    },
+    "notes_preprocessing": [],
+    "warnings": [
+      "Classes desbalanceadas: a menor classe representa 8.5% dos dados. Accuracy pode enganar — priorize Recall, F1 e balanced accuracy."
+    ],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "f4fff88827d7",
+    "created_at": "2026-11-17T21:51:06+00:00",
+    "model_file": "f4fff88827d7.joblib",
+    "results": {
+      "task": "classification",
+      "class_labels": [
+        "0",
+        "1"
+      ],
+      "positive_class": "1",
+      "n_classes": 2,
+      "confusion_matrix": [
+        [
+          1093,
+          5
+        ],
+        [
+          90,
+          12
+        ]
+      ],
+      "per_class": [
+        {
+          "label": "0",
+          "precision": 0.9239222316145393,
+          "recall": 0.9954462659380692,
+          "f1": 0.9583516001753617,
+          "support": 1098
+        },
+        {
+          "label": "1",
+          "precision": 0.7058823529411765,
+          "recall": 0.11764705882352941,
+          "f1": 0.20168067226890757,
+          "support": 102
+        }
+      ],
+      "roc_auc_curva": 0.8018411371834708
+    }
+  },
+  {
+    "name": "Decision Tree · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "classification",
+    "model": "decision_tree",
+    "model_name": "Decision Tree",
+    "family": "Árvores",
+    "params": {
+      "criterion": "gini",
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "class_weight": "none"
+    },
+    "preprocessing": {
+      "target": "falha_24h",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao",
+        "temperatura_rolamento_c"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "stratified",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": "binary",
+    "target": "falha_24h",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "temperatura_rolamento_c",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "num__temperatura_rolamento_c",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "stratified",
+    "metrics": {
+      "test": {
+        "accuracy": 0.8616666666666667,
+        "balanced_accuracy": 0.5864673738347799,
+        "precision": 0.22413793103448276,
+        "recall": 0.2549019607843137,
+        "f1": 0.23853211009174313,
+        "log_loss": 4.9860387188278725,
+        "roc_auc": 0.5864673738347798
+      },
+      "train": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "log_loss": 2.220446049250313e-16,
+        "roc_auc": 1.0
+      },
+      "baseline": {
+        "accuracy": 0.915,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "primary_metric": "f1",
+    "cv": {
+      "splitter": "StratifiedKFold",
+      "folds": 5,
+      "metrics": {
+        "accuracy": {
+          "mean": 0.8552083333333332,
+          "std": 0.01500506280300824,
+          "folds": [
+            0.865625,
+            0.859375,
+            0.871875,
+            0.8375,
+            0.8416666666666667
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.5664215672108097,
+          "std": 0.012823405542630697,
+          "folds": [
+            0.5623604264104833,
+            0.5645514684195002,
+            0.5881894408629335,
+            0.5628923829101617,
+            0.5541141174509695
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "precision": {
+          "mean": 0.19403773056212079,
+          "std": 0.03183073893814499,
+          "folds": [
+            0.2,
+            0.19318181818181818,
+            0.24390243902439024,
+            0.16964285714285715,
+            0.16346153846153846
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "recall": {
+          "mean": 0.21866907557964468,
+          "std": 0.020129259485529963,
+          "folds": [
+            0.19753086419753085,
+            0.20987654320987653,
+            0.24691358024691357,
+            0.23170731707317074,
+            0.2073170731707317
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "f1": {
+          "mean": 0.2048023913036956,
+          "std": 0.02377851136807853,
+          "folds": [
+            0.19875776397515527,
+            0.20118343195266272,
+            0.24539877300613497,
+            0.1958762886597938,
+            0.1827956989247312
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "roc_auc": {
+          "mean": 0.5664215672108097,
+          "std": 0.012823405542630709,
+          "folds": [
+            0.5623604264104832,
+            0.5645514684195003,
+            0.5881894408629335,
+            0.5628923829101616,
+            0.5541141174509695
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        }
+      },
+      "fit_time_mean": 0.06309752464294434
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "Importância por impureza/ganho (do próprio modelo)",
+      "features": [
+        "num__horas_desde_manutencao",
+        "num__carga_pct",
+        "num__temperatura_rolamento_c",
+        "num__vibracao_rms_mm_s",
+        "num__rotacao_rpm",
+        "num__temperatura_ambiente_c",
+        "num__corrente_a",
+        "num__umidade_pct",
+        "num__fator_potencia",
+        "cat__motor_id_MTR-02",
+        "cat__turno_B",
+        "cat__turno_C",
+        "cat__motor_id_MTR-10",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-01",
+        "cat__motor_id_MTR-03",
+        "cat__turno_A",
+        "cat__porte_medio",
+        "cat__motor_id_MTR-08",
+        "cat__motor_id_MTR-07",
+        "cat__motor_id_MTR-05",
+        "cat__motor_id_MTR-04",
+        "cat__porte_grande",
+        "cat__motor_id_MTR-06",
+        "cat__porte_pequeno"
+      ],
+      "values": [
+        0.17867477995752967,
+        0.1124055187450549,
+        0.11136473422562398,
+        0.11008112220245747,
+        0.10145543129546272,
+        0.08614171930254205,
+        0.08308951638930105,
+        0.07682627407196041,
+        0.052575253948448926,
+        0.011623397919778527,
+        0.01032859437924617,
+        0.009228440824161285,
+        0.008565297210884757,
+        0.008310304142551772,
+        0.007391782821308469,
+        0.006781003821750466,
+        0.005183173410412964,
+        0.004602235423997319,
+        0.0043638112392811075,
+        0.0028904595260160937,
+        0.0028800725312731847,
+        0.0023490576643319648,
+        0.0017897582204434016,
+        0.0010982607261811785,
+        0.0
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": null,
+    "timing": {
+      "fit_s": 0.07441854200000364,
+      "predict_s": 0.007794495999988271,
+      "cv_s": 0.596426858000001,
+      "total_s": 1.0943603050000092
+    },
+    "notes_preprocessing": [],
+    "warnings": [
+      "Classes desbalanceadas: a menor classe representa 8.5% dos dados. Accuracy pode enganar — priorize Recall, F1 e balanced accuracy."
+    ],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "82afbfc309f0",
+    "created_at": "2026-11-17T21:51:07+00:00",
+    "model_file": "82afbfc309f0.joblib",
+    "results": {
+      "task": "classification",
+      "class_labels": [
+        "0",
+        "1"
+      ],
+      "positive_class": "1",
+      "n_classes": 2,
+      "confusion_matrix": [
+        [
+          1008,
+          90
+        ],
+        [
+          76,
+          26
+        ]
+      ],
+      "per_class": [
+        {
+          "label": "0",
+          "precision": 0.9298892988929889,
+          "recall": 0.9180327868852459,
+          "f1": 0.923923006416132,
+          "support": 1098
+        },
+        {
+          "label": "1",
+          "precision": 0.22413793103448276,
+          "recall": 0.2549019607843137,
+          "f1": 0.23853211009174313,
+          "support": 102
+        }
+      ],
+      "roc_auc_curva": 0.5864673738347798
+    }
+  },
+  {
+    "name": "Random Forest · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "classification",
+    "model": "random_forest",
+    "model_name": "Random Forest",
+    "family": "Ensemble (bagging)",
+    "params": {
+      "n_estimators": 200,
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt",
+      "bootstrap": true,
+      "class_weight": "none"
+    },
+    "preprocessing": {
+      "target": "falha_24h",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao",
+        "temperatura_rolamento_c"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "stratified",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": "binary",
+    "target": "falha_24h",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "temperatura_rolamento_c",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "num__temperatura_rolamento_c",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "stratified",
+    "metrics": {
+      "test": {
+        "accuracy": 0.9266666666666666,
+        "balanced_accuracy": 0.5819672131147541,
+        "precision": 0.85,
+        "recall": 0.16666666666666666,
+        "f1": 0.2786885245901639,
+        "log_loss": 0.2581944959315296,
+        "roc_auc": 0.7940730026072359
+      },
+      "train": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "log_loss": 0.05753091209081669,
+        "roc_auc": 1.0
+      },
+      "baseline": {
+        "accuracy": 0.915,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "primary_metric": "f1",
+    "cv": {
+      "splitter": "StratifiedKFold",
+      "folds": 5,
+      "metrics": {
+        "accuracy": {
+          "mean": 0.9154166666666667,
+          "std": 0.003072475250781769,
+          "folds": [
+            0.9135416666666667,
+            0.9135416666666667,
+            0.9208333333333333,
+            0.9145833333333333,
+            0.9145833333333333
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.5424612869884037,
+          "std": 0.007309835821798885,
+          "folds": [
+            0.5324864113260017,
+            0.5492984452028821,
+            0.5420722201154511,
+            0.5386965942552364,
+            0.5497527640424468
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "precision": {
+          "mean": 0.5312698412698412,
+          "std": 0.1413095182376984,
+          "folds": [
+            0.42857142857142855,
+            0.45,
+            0.7777777777777778,
+            0.5,
+            0.5
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "recall": {
+          "mean": 0.09334537789822342,
+          "std": 0.016339776877678253,
+          "folds": [
+            0.07407407407407407,
+            0.1111111111111111,
+            0.08641975308641975,
+            0.08536585365853659,
+            0.10975609756097561
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "f1": {
+          "mean": 0.1571845000289503,
+          "std": 0.02262370106601516,
+          "folds": [
+            0.12631578947368421,
+            0.1782178217821782,
+            0.15555555555555556,
+            0.14583333333333334,
+            0.18
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "roc_auc": {
+          "mean": 0.7487182098085181,
+          "std": 0.018889135791367154,
+          "folds": [
+            0.7288725965252321,
+            0.7409373727159089,
+            0.777468784673942,
+            0.7396244235790878,
+            0.7566878715484194
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        }
+      },
+      "fit_time_mean": 0.7647534847259522
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "Importância por impureza/ganho (do próprio modelo)",
+      "features": [
+        "num__horas_desde_manutencao",
+        "num__vibracao_rms_mm_s",
+        "num__temperatura_rolamento_c",
+        "num__corrente_a",
+        "num__carga_pct",
+        "num__rotacao_rpm",
+        "num__temperatura_ambiente_c",
+        "num__umidade_pct",
+        "num__fator_potencia",
+        "cat__turno_B",
+        "cat__turno_C",
+        "cat__turno_A",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-08",
+        "cat__motor_id_MTR-03",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-06",
+        "cat__motor_id_MTR-01",
+        "cat__porte_medio",
+        "cat__motor_id_MTR-10",
+        "cat__porte_grande",
+        "cat__motor_id_MTR-05",
+        "cat__porte_pequeno",
+        "cat__motor_id_MTR-07",
+        "cat__motor_id_MTR-04"
+      ],
+      "values": [
+        0.13308450639436034,
+        0.1323096389945748,
+        0.10045214626882279,
+        0.0994981004556808,
+        0.09668185531239859,
+        0.08971513574791061,
+        0.08418721034752885,
+        0.08125488101204263,
+        0.07881978034847113,
+        0.011721153453067816,
+        0.011167041452647661,
+        0.010772112788883964,
+        0.0083789121201557,
+        0.008325630777887531,
+        0.007559833069566351,
+        0.006555490418056924,
+        0.005381705202029613,
+        0.005090129890154315,
+        0.005053296081957734,
+        0.004966211679529157,
+        0.004843793881555498,
+        0.004341887219586319,
+        0.003659912916667123,
+        0.003528142386307563,
+        0.002651491780156294
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": null,
+    "timing": {
+      "fit_s": 0.9667016350000068,
+      "predict_s": 0.052032955999990804,
+      "cv_s": 5.217070007999993,
+      "total_s": 7.060444066000002
+    },
+    "notes_preprocessing": [],
+    "warnings": [
+      "Classes desbalanceadas: a menor classe representa 8.5% dos dados. Accuracy pode enganar — priorize Recall, F1 e balanced accuracy."
+    ],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "da562796e12b",
+    "created_at": "2026-11-17T21:51:14+00:00",
+    "model_file": "da562796e12b.joblib",
+    "results": {
+      "task": "classification",
+      "class_labels": [
+        "0",
+        "1"
+      ],
+      "positive_class": "1",
+      "n_classes": 2,
+      "confusion_matrix": [
+        [
+          1095,
+          3
+        ],
+        [
+          85,
+          17
+        ]
+      ],
+      "per_class": [
+        {
+          "label": "0",
+          "precision": 0.9279661016949152,
+          "recall": 0.9972677595628415,
+          "f1": 0.961369622475856,
+          "support": 1098
+        },
+        {
+          "label": "1",
+          "precision": 0.85,
+          "recall": 0.16666666666666666,
+          "f1": 0.2786885245901639,
+          "support": 102
+        }
+      ],
+      "roc_auc_curva": 0.7940730026072359
+    }
+  },
+  {
+    "name": "XGBoost · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "classification",
+    "model": "xgboost",
+    "model_name": "XGBoost",
+    "family": "Ensemble (boosting)",
+    "params": {
+      "n_estimators": 300,
+      "learning_rate": 0.1,
+      "max_depth": 6,
+      "subsample": 1.0,
+      "colsample_bytree": 1.0,
+      "min_child_weight": 1.0,
+      "reg_lambda": 1.0,
+      "reg_alpha": 0.0,
+      "gamma": 0.0,
+      "scale_pos_weight": "1"
+    },
+    "preprocessing": {
+      "target": "falha_24h",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao",
+        "temperatura_rolamento_c"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "stratified",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": "binary",
+    "target": "falha_24h",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "temperatura_rolamento_c",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "num__temperatura_rolamento_c",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "stratified",
+    "metrics": {
+      "test": {
+        "accuracy": 0.9191666666666667,
+        "balanced_accuracy": 0.5778688524590164,
+        "precision": 0.5862068965517241,
+        "recall": 0.16666666666666666,
+        "f1": 0.2595419847328244,
+        "log_loss": 0.27696898579597473,
+        "roc_auc": 0.7533840494303368
+      },
+      "train": {
+        "accuracy": 0.9970833333333333,
+        "balanced_accuracy": 0.9828009828009828,
+        "precision": 1.0,
+        "recall": 0.9656019656019657,
+        "f1": 0.9825,
+        "log_loss": 0.04405299201607704,
+        "roc_auc": 1.0
+      },
+      "baseline": {
+        "accuracy": 0.915,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "primary_metric": "f1",
+    "cv": {
+      "splitter": "StratifiedKFold",
+      "folds": 5,
+      "metrics": {
+        "accuracy": {
+          "mean": 0.9110416666666665,
+          "std": 0.007350949485157245,
+          "folds": [
+            0.9125,
+            0.909375,
+            0.9229166666666667,
+            0.90625,
+            0.9041666666666667
+          ],
+          "train_mean": 0.9991666666666668,
+          "train_std": 0.0006740718284138125
+        },
+        "balanced_accuracy": {
+          "mean": 0.553428391587938,
+          "std": 0.019660193767344018,
+          "folds": [
+            0.5431256056967092,
+            0.5302110984704842,
+            0.5824379555892638,
+            0.5507250402800156,
+            0.5606422579032169
+          ],
+          "train_mean": 0.9950891930155734,
+          "train_std": 0.003967898614711699
+        },
+        "precision": {
+          "mean": 0.4262273330384786,
+          "std": 0.13839316405286062,
+          "folds": [
+            0.42105263157894735,
+            0.3333333333333333,
+            0.6666666666666666,
+            0.35714285714285715,
+            0.35294117647058826
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        },
+        "recall": {
+          "mean": 0.12279433905450166,
+          "std": 0.03876451101635049,
+          "folds": [
+            0.09876543209876543,
+            0.07407407407407407,
+            0.1728395061728395,
+            0.12195121951219512,
+            0.14634146341463414
+          ],
+          "train_mean": 0.9901783860311466,
+          "train_std": 0.007935797229423436
+        },
+        "f1": {
+          "mean": 0.18888733173520192,
+          "std": 0.05727111986548552,
+          "folds": [
+            0.16,
+            0.12121212121212122,
+            0.27450980392156865,
+            0.18181818181818182,
+            0.20689655172413793
+          ],
+          "train_mean": 0.9950521596988253,
+          "train_std": 0.004012021235504814
+        },
+        "roc_auc": {
+          "mean": 0.7042564331847563,
+          "std": 0.026013871603695032,
+          "folds": [
+            0.7063020548041404,
+            0.6858663745277321,
+            0.7486481551707188,
+            0.6907605978109894,
+            0.6897049836102006
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        }
+      },
+      "fit_time_mean": 0.3657900333404541
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "Importância por impureza/ganho (do próprio modelo)",
+      "features": [
+        "num__vibracao_rms_mm_s",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-05",
+        "num__temperatura_rolamento_c",
+        "num__horas_desde_manutencao",
+        "cat__motor_id_MTR-07",
+        "cat__turno_C",
+        "cat__turno_B",
+        "num__rotacao_rpm",
+        "num__corrente_a",
+        "cat__motor_id_MTR-10",
+        "num__umidade_pct",
+        "cat__turno_A",
+        "cat__porte_pequeno",
+        "num__carga_pct",
+        "cat__motor_id_MTR-08",
+        "cat__porte_medio",
+        "num__fator_potencia",
+        "num__temperatura_ambiente_c",
+        "cat__porte_grande",
+        "cat__motor_id_MTR-01",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-06",
+        "cat__motor_id_MTR-03",
+        "cat__motor_id_MTR-04"
+      ],
+      "values": [
+        0.08905697613954544,
+        0.059740763157606125,
+        0.05883559584617615,
+        0.048998694866895676,
+        0.04429952800273895,
+        0.04233799874782562,
+        0.04107701778411865,
+        0.03992742300033569,
+        0.03968207910656929,
+        0.03931574150919914,
+        0.03883915767073631,
+        0.03713013604283333,
+        0.03668859228491783,
+        0.03636912629008293,
+        0.03540996089577675,
+        0.03513680025935173,
+        0.03499273583292961,
+        0.03496906906366348,
+        0.034904420375823975,
+        0.03462347760796547,
+        0.032622404396533966,
+        0.03136216476559639,
+        0.030606316402554512,
+        0.030429821461439133,
+        0.012643962167203426
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": null,
+    "timing": {
+      "fit_s": 0.27133569100000443,
+      "predict_s": 0.017831208999993464,
+      "cv_s": 2.3265620479999995,
+      "total_s": 3.042229781000003
+    },
+    "notes_preprocessing": [],
+    "warnings": [
+      "Classes desbalanceadas: a menor classe representa 8.5% dos dados. Accuracy pode enganar — priorize Recall, F1 e balanced accuracy."
+    ],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "704446b40de9",
+    "created_at": "2026-11-17T21:51:17+00:00",
+    "model_file": "704446b40de9.joblib",
+    "results": {
+      "task": "classification",
+      "class_labels": [
+        "0",
+        "1"
+      ],
+      "positive_class": "1",
+      "n_classes": 2,
+      "confusion_matrix": [
+        [
+          1086,
+          12
+        ],
+        [
+          85,
+          17
+        ]
+      ],
+      "per_class": [
+        {
+          "label": "0",
+          "precision": 0.9274124679760888,
+          "recall": 0.9890710382513661,
+          "f1": 0.9572498898193037,
+          "support": 1098
+        },
+        {
+          "label": "1",
+          "precision": 0.5862068965517241,
+          "recall": 0.16666666666666666,
+          "f1": 0.2595419847328244,
+          "support": 102
+        }
+      ],
+      "roc_auc_curva": 0.7533840494303368
+    }
+  },
+  {
+    "name": "Regressão Linear · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "regression",
+    "model": "linear_regression",
+    "model_name": "Regressão Linear",
+    "family": "Linear",
+    "params": {
+      "regularization": "none",
+      "alpha": 1.0,
+      "fit_intercept": true
+    },
+    "preprocessing": {
+      "target": "temperatura_rolamento_c",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "temporal",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": null,
+    "target": "temperatura_rolamento_c",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "temporal",
+    "metrics": {
+      "test": {
+        "mae": 2.5396466806339717,
+        "rmse": 3.2609040674300585,
+        "mse": 10.6334953369819,
+        "r2": 0.9124845457860927,
+        "mape": 4.902605954392173
+      },
+      "train": {
+        "mae": 2.384992630155627,
+        "rmse": 3.0549148063605522,
+        "mse": 9.33250447412093,
+        "r2": 0.9285187936225507,
+        "mape": 4.070190496455696
+      },
+      "baseline": {
+        "mae": 11.050733822916662,
+        "rmse": 13.016389277494282,
+        "mse": 169.4263898232681,
+        "r2": -0.39440767041463576,
+        "mape": 23.334445768826672
+      }
+    },
+    "primary_metric": "rmse",
+    "cv": {
+      "splitter": "TimeSeriesSplit",
+      "folds": 5,
+      "metrics": {
+        "mae": {
+          "mean": 2.406402325707716,
+          "std": 0.10261868735392911,
+          "folds": [
+            2.2813410736209327,
+            2.393898928249479,
+            2.396703271075681,
+            2.3923177103835256,
+            2.5677506452089602
+          ],
+          "train_mean": 2.3553396492813437,
+          "train_std": 0.017447969821217595
+        },
+        "rmse": {
+          "mean": 3.093982900383382,
+          "std": 0.15362796934066214,
+          "folds": [
+            3.0337366682204134,
+            3.011888786796465,
+            3.0288225483590727,
+            3.0270536977489737,
+            3.368412800791986
+          ],
+          "train_mean": 3.0054091224056743,
+          "train_std": 0.021171719996498754
+        },
+        "r2": {
+          "mean": 0.9172667137733501,
+          "std": 0.0075567021137912934,
+          "folds": [
+            0.9179654032440049,
+            0.9235304174005248,
+            0.9207767632214052,
+            0.9198258874126175,
+            0.9042350975881982
+          ],
+          "train_mean": 0.9283124887117523,
+          "train_std": 0.0007934663684019882
+        }
+      },
+      "fit_time_mean": 0.054286956787109375
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "|Coeficiente| (atributos na escala transformada)",
+      "features": [
+        "cat__porte_grande",
+        "cat__porte_pequeno",
+        "num__carga_pct",
+        "num__temperatura_ambiente_c",
+        "cat__porte_medio",
+        "cat__motor_id_MTR-07",
+        "cat__motor_id_MTR-04",
+        "num__vibracao_rms_mm_s",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-03",
+        "cat__motor_id_MTR-08",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-06",
+        "num__corrente_a",
+        "cat__motor_id_MTR-05",
+        "cat__motor_id_MTR-10",
+        "cat__motor_id_MTR-01",
+        "num__horas_desde_manutencao",
+        "num__rotacao_rpm",
+        "cat__turno_A",
+        "num__fator_potencia",
+        "cat__turno_B",
+        "num__umidade_pct",
+        "cat__turno_C"
+      ],
+      "values": [
+        7.164021356139501,
+        4.757074731824993,
+        4.5769106835174265,
+        4.251963040976878,
+        2.406946624314506,
+        2.3917214684712174,
+        2.3653532633537777,
+        2.3185377552900985,
+        1.529349706585729,
+        1.4679632654427996,
+        1.4448799417819709,
+        1.4087719397827365,
+        1.3130565025462662,
+        1.2200827085107078,
+        0.9291769091292887,
+        0.74795868134231,
+        0.7298110338429069,
+        0.1360662513708784,
+        0.05827563360078599,
+        0.0503489119003459,
+        0.04963377318162455,
+        0.03581487918314411,
+        0.016939377408429657,
+        0.01453403271720053
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": {
+      "rows": [
+        {
+          "label": "coef",
+          "values": [
+            4.251963040976878,
+            -0.016939377408429657,
+            4.5769106835174265,
+            0.05827563360078599,
+            1.2200827085107078,
+            -0.04963377318162455,
+            2.3185377552900985,
+            0.1360662513708784,
+            -0.7298110338429069,
+            1.529349706585729,
+            1.4679632654427996,
+            -2.3653532633537777,
+            -0.9291769091292887,
+            1.3130565025462662,
+            -2.3917214684712174,
+            1.4448799417819709,
+            1.4087719397827365,
+            -0.74795868134231,
+            7.164021356139501,
+            -2.406946624314506,
+            -4.757074731824993,
+            0.0503489119003459,
+            -0.03581487918314411,
+            -0.01453403271720053
+          ]
+        }
+      ],
+      "features": [
+        "num__temperatura_ambiente_c",
+        "num__umidade_pct",
+        "num__carga_pct",
+        "num__rotacao_rpm",
+        "num__corrente_a",
+        "num__fator_potencia",
+        "num__vibracao_rms_mm_s",
+        "num__horas_desde_manutencao",
+        "cat__motor_id_MTR-01",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-03",
+        "cat__motor_id_MTR-04",
+        "cat__motor_id_MTR-05",
+        "cat__motor_id_MTR-06",
+        "cat__motor_id_MTR-07",
+        "cat__motor_id_MTR-08",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-10",
+        "cat__porte_grande",
+        "cat__porte_medio",
+        "cat__porte_pequeno",
+        "cat__turno_A",
+        "cat__turno_B",
+        "cat__turno_C"
+      ],
+      "intercept": [
+        59.01070662170792
+      ]
+    },
+    "timing": {
+      "fit_s": 0.03461671600000216,
+      "predict_s": 0.0073511589999952776,
+      "cv_s": 0.39365056699999457,
+      "total_s": 0.6159542150000021
+    },
+    "notes_preprocessing": [
+      "Dados ordenados por 'timestamp' para a separação temporal."
+    ],
+    "warnings": [],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "307c0f6a13eb",
+    "created_at": "2026-11-17T21:51:18+00:00",
+    "model_file": "307c0f6a13eb.joblib",
+    "results": {
+      "task": "regression",
+      "class_labels": null,
+      "positive_class": null,
+      "n_classes": 0,
+      "confusion_matrix": null,
+      "per_class": null,
+      "residuos": {
+        "media": -0.2708482878638555,
+        "dp": 3.250991232727722
+      }
+    }
+  },
+  {
+    "name": "Decision Tree · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "regression",
+    "model": "decision_tree",
+    "model_name": "Decision Tree",
+    "family": "Árvores",
+    "params": {
+      "criterion": "squared_error",
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1
+    },
+    "preprocessing": {
+      "target": "temperatura_rolamento_c",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "temporal",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": null,
+    "target": "temperatura_rolamento_c",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "temporal",
+    "metrics": {
+      "test": {
+        "mae": 3.2731833333333333,
+        "rmse": 4.368904839888367,
+        "mse": 19.0873295,
+        "r2": 0.8429080694554449,
+        "mape": 6.374096716639495
+      },
+      "train": {
+        "mae": 0.0,
+        "rmse": 0.0,
+        "mse": 0.0,
+        "r2": 1.0,
+        "mape": 0.0
+      },
+      "baseline": {
+        "mae": 11.050733822916662,
+        "rmse": 13.016389277494282,
+        "mse": 169.4263898232681,
+        "r2": -0.39440767041463576,
+        "mape": 23.334445768826672
+      }
+    },
+    "primary_metric": "rmse",
+    "cv": {
+      "splitter": "TimeSeriesSplit",
+      "folds": 5,
+      "metrics": {
+        "mae": {
+          "mean": 3.3721225000000006,
+          "std": 0.3605059078052678,
+          "folds": [
+            3.914050000000001,
+            3.2320500000000005,
+            3.0326999999999997,
+            3.1294875,
+            3.552325
+          ],
+          "train_mean": 0.0,
+          "train_std": 0.0
+        },
+        "rmse": {
+          "mean": 4.402330510593071,
+          "std": 0.46035054646072227,
+          "folds": [
+            5.136062085878636,
+            4.199082131847387,
+            3.9354888514643256,
+            4.215506004621509,
+            4.525513479153498
+          ],
+          "train_mean": 0.0,
+          "train_std": 0.0
+        },
+        "r2": {
+          "mean": 0.8308281475352064,
+          "std": 0.039456348857056525,
+          "folds": [
+            0.7648733718538829,
+            0.8513655107860113,
+            0.8662473807406087,
+            0.8445132679237384,
+            0.8271412063717911
+          ],
+          "train_mean": 1.0,
+          "train_std": 0.0
+        }
+      },
+      "fit_time_mean": 0.037362289428710935
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "Importância por impureza/ganho (do próprio modelo)",
+      "features": [
+        "num__corrente_a",
+        "num__temperatura_ambiente_c",
+        "num__vibracao_rms_mm_s",
+        "num__carga_pct",
+        "num__horas_desde_manutencao",
+        "num__rotacao_rpm",
+        "num__fator_potencia",
+        "num__umidade_pct",
+        "cat__porte_grande",
+        "cat__motor_id_MTR-03",
+        "cat__turno_A",
+        "cat__porte_pequeno",
+        "cat__motor_id_MTR-05",
+        "cat__turno_C",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-06",
+        "cat__porte_medio",
+        "cat__motor_id_MTR-08",
+        "cat__motor_id_MTR-07",
+        "cat__motor_id_MTR-01",
+        "cat__turno_B",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-04",
+        "cat__motor_id_MTR-10"
+      ],
+      "values": [
+        0.7596676147948851,
+        0.14255936424479523,
+        0.03519774699855603,
+        0.024920738542655443,
+        0.011229016566185426,
+        0.005421346890344984,
+        0.004719966902159164,
+        0.004677598129454592,
+        0.004151023376411878,
+        0.0018867940077342323,
+        0.000825952809083541,
+        0.0006664396546678215,
+        0.0005524748145611214,
+        0.0005420820399281424,
+        0.0005229297577733252,
+        0.0004851368795877517,
+        0.00041163824615118784,
+        0.0003314607795002329,
+        0.0002934378208173617,
+        0.0002706306364509345,
+        0.0002302453839563943,
+        0.00015885098770100634,
+        0.0001496418792847086,
+        0.00012786785735426531
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": null,
+    "timing": {
+      "fit_s": 0.06233866600000226,
+      "predict_s": 0.0077884180000040715,
+      "cv_s": 0.29312701799999274,
+      "total_s": 0.5623759989999968
+    },
+    "notes_preprocessing": [
+      "Dados ordenados por 'timestamp' para a separação temporal."
+    ],
+    "warnings": [],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "8d239f3f41e4",
+    "created_at": "2026-11-17T21:51:19+00:00",
+    "model_file": "8d239f3f41e4.joblib",
+    "results": {
+      "task": "regression",
+      "class_labels": null,
+      "positive_class": null,
+      "n_classes": 0,
+      "confusion_matrix": null,
+      "per_class": null,
+      "residuos": {
+        "media": -0.6461666666666666,
+        "dp": 4.3226576639789
+      }
+    }
+  },
+  {
+    "name": "Random Forest · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "regression",
+    "model": "random_forest",
+    "model_name": "Random Forest",
+    "family": "Ensemble (bagging)",
+    "params": {
+      "n_estimators": 200,
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": "1.0",
+      "bootstrap": true
+    },
+    "preprocessing": {
+      "target": "temperatura_rolamento_c",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "temporal",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": null,
+    "target": "temperatura_rolamento_c",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "temporal",
+    "metrics": {
+      "test": {
+        "mae": 2.3441013749999993,
+        "rmse": 3.112827206639287,
+        "mse": 9.689693218393746,
+        "r2": 0.9202521958840834,
+        "mape": 4.578858207145643
+      },
+      "train": {
+        "mae": 0.7778267604166661,
+        "rmse": 1.0376755437331933,
+        "mse": 1.0767705340619782,
+        "r2": 0.9917526043539678,
+        "mape": 1.3200671990408779
+      },
+      "baseline": {
+        "mae": 11.050733822916662,
+        "rmse": 13.016389277494282,
+        "mse": 169.4263898232681,
+        "r2": -0.39440767041463576,
+        "mape": 23.334445768826672
+      }
+    },
+    "primary_metric": "rmse",
+    "cv": {
+      "splitter": "TimeSeriesSplit",
+      "folds": 5,
+      "metrics": {
+        "mae": {
+          "mean": 2.4614203749999986,
+          "std": 0.38198875855621833,
+          "folds": [
+            3.019295562499999,
+            2.2711765625000004,
+            2.086391937499999,
+            2.246520499999996,
+            2.6837173125000016
+          ],
+          "train_mean": 0.8048011529166674,
+          "train_std": 0.038750862637094145
+        },
+        "rmse": {
+          "mean": 3.298792520434513,
+          "std": 0.5249274684216003,
+          "folds": [
+            4.062978049982625,
+            3.1486868189904786,
+            2.6847772105410557,
+            3.0551731717981188,
+            3.542347350860286
+          ],
+          "train_mean": 1.068535429693716,
+          "train_std": 0.05863755320795633
+        },
+        "r2": {
+          "mean": 0.903891636721571,
+          "std": 0.03245156827448469,
+          "folds": [
+            0.8528601739977495,
+            0.9164262694335643,
+            0.9377525696408336,
+            0.9183294322109381,
+            0.8940897383247697
+          ],
+          "train_mean": 0.9909283034432723,
+          "train_std": 0.0008508515994771306
+        }
+      },
+      "fit_time_mean": 1.412147331237793
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "Importância por impureza/ganho (do próprio modelo)",
+      "features": [
+        "num__corrente_a",
+        "num__temperatura_ambiente_c",
+        "num__vibracao_rms_mm_s",
+        "num__carga_pct",
+        "num__horas_desde_manutencao",
+        "num__rotacao_rpm",
+        "num__fator_potencia",
+        "num__umidade_pct",
+        "cat__porte_grande",
+        "cat__motor_id_MTR-03",
+        "cat__porte_medio",
+        "cat__turno_A",
+        "cat__turno_B",
+        "cat__turno_C",
+        "cat__porte_pequeno",
+        "cat__motor_id_MTR-06",
+        "cat__motor_id_MTR-09",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-05",
+        "cat__motor_id_MTR-08",
+        "cat__motor_id_MTR-04",
+        "cat__motor_id_MTR-01",
+        "cat__motor_id_MTR-10",
+        "cat__motor_id_MTR-07"
+      ],
+      "values": [
+        0.7620028960877189,
+        0.14333195475831084,
+        0.03075972943661999,
+        0.023257463048908352,
+        0.01276756305147641,
+        0.006377847395328754,
+        0.005362631424500859,
+        0.005108629067195067,
+        0.0038465809282434704,
+        0.0009645998180190591,
+        0.0007427895029444168,
+        0.0006093259252298329,
+        0.0005899342810466674,
+        0.0005845542381113213,
+        0.0005510102169615248,
+        0.0004661149449728235,
+        0.00039679787318340785,
+        0.0003905885075572359,
+        0.0003652945044677175,
+        0.00033076371700865506,
+        0.0003207718167777536,
+        0.00029918323515042134,
+        0.00029824143893883616,
+        0.000274734781327603
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": null,
+    "timing": {
+      "fit_s": 2.6897175160000018,
+      "predict_s": 0.061998833000018294,
+      "cv_s": 7.7703505899999925,
+      "total_s": 10.834300053000007
+    },
+    "notes_preprocessing": [
+      "Dados ordenados por 'timestamp' para a separação temporal."
+    ],
+    "warnings": [],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "3bd9cdd4eb80",
+    "created_at": "2026-11-17T21:51:30+00:00",
+    "model_file": "3bd9cdd4eb80.joblib",
+    "results": {
+      "task": "regression",
+      "class_labels": null,
+      "positive_class": null,
+      "n_classes": 0,
+      "confusion_matrix": null,
+      "per_class": null,
+      "residuos": {
+        "media": -0.6051062083333429,
+        "dp": 3.0547202476696826
+      }
+    }
+  },
+  {
+    "name": "XGBoost · Motores industriais (sintético)",
+    "dataset_id": "2d2dfdfd0f5a",
+    "dataset_name": "Motores industriais (sintético)",
+    "task": "regression",
+    "model": "xgboost",
+    "model_name": "XGBoost",
+    "family": "Ensemble (boosting)",
+    "params": {
+      "n_estimators": 300,
+      "learning_rate": 0.1,
+      "max_depth": 6,
+      "subsample": 1.0,
+      "colsample_bytree": 1.0,
+      "min_child_weight": 1.0,
+      "reg_lambda": 1.0,
+      "reg_alpha": 0.0,
+      "gamma": 0.0
+    },
+    "preprocessing": {
+      "target": "temperatura_rolamento_c",
+      "task": "auto",
+      "features": [
+        "motor_id",
+        "porte",
+        "turno",
+        "temperatura_ambiente_c",
+        "umidade_pct",
+        "carga_pct",
+        "rotacao_rpm",
+        "corrente_a",
+        "fator_potencia",
+        "vibracao_rms_mm_s",
+        "horas_desde_manutencao"
+      ],
+      "numeric_imputation": "median",
+      "numeric_fill_value": 0.0,
+      "categorical_imputation": "most_frequent",
+      "add_missing_indicator": false,
+      "outlier_treatment": "none",
+      "scaling": "standard",
+      "encoding": "onehot",
+      "max_categories": 20,
+      "feature_selection": {
+        "method": "none",
+        "k": 10,
+        "variance_threshold": 0.0
+      },
+      "split_strategy": "temporal",
+      "time_column": "timestamp",
+      "test_size": 0.2,
+      "random_state": 42,
+      "positive_class": null
+    },
+    "cv_config": {
+      "enabled": true,
+      "folds": 5
+    },
+    "average": null,
+    "target": "temperatura_rolamento_c",
+    "features_used": [
+      "temperatura_ambiente_c",
+      "umidade_pct",
+      "carga_pct",
+      "rotacao_rpm",
+      "corrente_a",
+      "fator_potencia",
+      "vibracao_rms_mm_s",
+      "horas_desde_manutencao",
+      "motor_id",
+      "porte",
+      "turno"
+    ],
+    "final_features": [
+      "num__temperatura_ambiente_c",
+      "num__umidade_pct",
+      "num__carga_pct",
+      "num__rotacao_rpm",
+      "num__corrente_a",
+      "num__fator_potencia",
+      "num__vibracao_rms_mm_s",
+      "num__horas_desde_manutencao",
+      "cat__motor_id_MTR-01",
+      "cat__motor_id_MTR-02",
+      "cat__motor_id_MTR-03",
+      "cat__motor_id_MTR-04",
+      "cat__motor_id_MTR-05",
+      "cat__motor_id_MTR-06",
+      "cat__motor_id_MTR-07",
+      "cat__motor_id_MTR-08",
+      "cat__motor_id_MTR-09",
+      "cat__motor_id_MTR-10",
+      "cat__porte_grande",
+      "cat__porte_medio",
+      "cat__porte_pequeno",
+      "cat__turno_A",
+      "cat__turno_B",
+      "cat__turno_C"
+    ],
+    "n_train": 4800,
+    "n_test": 1200,
+    "split_strategy": "temporal",
+    "metrics": {
+      "test": {
+        "mae": 2.2516466739654537,
+        "rmse": 2.933172327249219,
+        "mse": 8.603499901340601,
+        "r2": 0.9291917494827401,
+        "mape": 4.37192632221074
+      },
+      "train": {
+        "mae": 0.7372154557228089,
+        "rmse": 0.9983954354321124,
+        "mse": 0.9967934454916774,
+        "r2": 0.9923651793373942,
+        "mape": 1.2470507422353494
+      },
+      "baseline": {
+        "mae": 11.050733822916662,
+        "rmse": 13.016389277494282,
+        "mse": 169.4263898232681,
+        "r2": -0.39440767041463576,
+        "mape": 23.334445768826672
+      }
+    },
+    "primary_metric": "rmse",
+    "cv": {
+      "splitter": "TimeSeriesSplit",
+      "folds": 5,
+      "metrics": {
+        "mae": {
+          "mean": 2.2823886417007446,
+          "std": 0.2813312493357658,
+          "folds": [
+            2.722190015411377,
+            2.1518351060867307,
+            2.0120747453689574,
+            2.1358545921325685,
+            2.3899887495040897
+          ],
+          "train_mean": 0.3505091190846762,
+          "train_std": 0.22720566995217176
+        },
+        "rmse": {
+          "mean": 3.01210721775587,
+          "std": 0.4028987541421505,
+          "folds": [
+            3.6316486283086014,
+            2.872814597762629,
+            2.5697937988588673,
+            2.8354770375973484,
+            3.150802026251904
+          ],
+          "train_mean": 0.48098905451103946,
+          "train_std": 0.3066110708146666
+        },
+        "r2": {
+          "mean": 0.9203408533568094,
+          "std": 0.023205123544683674,
+          "folds": [
+            0.882442881739368,
+            0.9304293510785144,
+            0.9429702488978029,
+            0.9296529029279363,
+            0.9162088821404251
+          ],
+          "train_mean": 0.9975389687957129,
+          "train_std": 0.0023796475359508214
+        }
+      },
+      "fit_time_mean": 0.32995166778564455
+    },
+    "learning_curve": null,
+    "importance": {
+      "kind": "Importância por impureza/ganho (do próprio modelo)",
+      "features": [
+        "num__corrente_a",
+        "cat__porte_grande",
+        "num__temperatura_ambiente_c",
+        "num__vibracao_rms_mm_s",
+        "num__carga_pct",
+        "cat__motor_id_MTR-04",
+        "cat__porte_pequeno",
+        "num__horas_desde_manutencao",
+        "cat__motor_id_MTR-03",
+        "cat__motor_id_MTR-02",
+        "cat__motor_id_MTR-01",
+        "cat__motor_id_MTR-08",
+        "num__rotacao_rpm",
+        "cat__motor_id_MTR-06",
+        "cat__porte_medio",
+        "cat__motor_id_MTR-05",
+        "cat__motor_id_MTR-10",
+        "num__fator_potencia",
+        "cat__turno_C",
+        "cat__motor_id_MTR-09",
+        "num__umidade_pct",
+        "cat__turno_A",
+        "cat__turno_B",
+        "cat__motor_id_MTR-07"
+      ],
+      "values": [
+        0.6295720934867859,
+        0.1786995679140091,
+        0.06524504721164703,
+        0.028035704046487808,
+        0.01882351189851761,
+        0.014896624721586704,
+        0.010052771307528019,
+        0.006811652798205614,
+        0.004456046503037214,
+        0.0038907709531486034,
+        0.003606144804507494,
+        0.0035076322965323925,
+        0.0034232751931995153,
+        0.003352412721142173,
+        0.002961813472211361,
+        0.002883450360968709,
+        0.0028626956045627594,
+        0.0028061859775334597,
+        0.0026506013236939907,
+        0.002473516156896949,
+        0.0024195441510528326,
+        0.0023768001701682806,
+        0.0022632358595728874,
+        0.0019288574112579226
+      ]
+    },
+    "permutation_importance": null,
+    "coefficients": null,
+    "timing": {
+      "fit_s": 0.452059792,
+      "predict_s": 0.017132000999993124,
+      "cv_s": 1.8285456109999814,
+      "total_s": 2.5705782400000032
+    },
+    "notes_preprocessing": [
+      "Dados ordenados por 'timestamp' para a separação temporal."
+    ],
+    "warnings": [],
+    "tags": [],
+    "notes": null,
+    "environment": {
+      "python": "3.13.17",
+      "sklearn": "1.9.1",
+      "xgboost": "3.4.1",
+      "pandas": "3.0.5",
+      "numpy": "2.5.3"
+    },
+    "id": "7560aa4542ca",
+    "created_at": "2026-11-17T21:51:32+00:00",
+    "model_file": "7560aa4542ca.joblib",
+    "results": {
+      "task": "regression",
+      "class_labels": null,
+      "positive_class": null,
+      "n_classes": 0,
+      "confusion_matrix": null,
+      "per_class": null,
+      "residuos": {
+        "media": -0.40043649864196773,
+        "dp": 2.9069214538485557
+      }
+    }
+  }
+]
